@@ -11,24 +11,24 @@ import javax.persistence.*
 class PetOwner (
 
         @Column(nullable = false)
-        val name: String,
+        val name: String? = null,
 
         @Column(unique = true, nullable = false)
-        private val cpf: String,
+        private val cpf: String? = null,
 
         @Column(nullable = false)
-        val dataBirth: LocalDateTime,
+        val dataBirth: LocalDateTime? = null,
 
-        @OneToOne
-        val address: Address,
+        @OneToOne(cascade = [CascadeType.ALL], fetch = FetchType.EAGER, orphanRemoval = true)
+        val address: Address? = null,
+
+        @OneToMany(cascade = [CascadeType.ALL], fetch = FetchType.EAGER, orphanRemoval = true)
+        val phoneNumbers:MutableList<Phone> = mutableListOf(),
+
+        @OneToOne(optional = false, cascade = [CascadeType.ALL], orphanRemoval = true)
+        val user: User? = null,
 
         @OneToMany
-        val phoneNumbers:List<Phone>,
-
-        @OneToOne(optional = false)
-        val user: User,
-
-        @OneToMany
-        val pets:List<Pet>
+        val pets:MutableList<Pet> = mutableListOf()
 
 ) : DatabaseEntity<Long>()

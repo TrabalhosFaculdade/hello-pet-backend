@@ -9,22 +9,22 @@ import javax.persistence.*
 abstract class Pet (
 
         @Column(nullable = false)
-        val name:String,
+        val name:String? = null,
 
         @Column(nullable = true)
-        val birth:LocalDateTime,
+        val birth:LocalDateTime? = null,
 
         @Column(nullable = true)
-        val weight:Float,
+        val weight:Float? = null,
 
         @ManyToOne(optional = false)
-        val owner: PetOwner,
+        val owner: PetOwner? = null,
 
         @ManyToOne
-        val species: Species,
+        val species: Species? = null,
 
         @Enumerated(EnumType.STRING)
-        val gender: Gender
+        val gender: Gender? = null
 
 ): DatabaseEntity<Long>()
 

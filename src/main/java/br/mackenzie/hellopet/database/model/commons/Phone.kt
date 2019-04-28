@@ -7,9 +7,9 @@ import javax.persistence.Entity
 class Phone (
 
         @Column(nullable = false)
-        val phoneNumber:String,
+        val phoneNumber:String? = null,
 
         @Column(nullable = false)
-        val validated:Boolean
+        val validated:Boolean? = null
 
 ) : DatabaseEntity<Long>()

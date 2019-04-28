@@ -18,13 +18,13 @@ class Dog (
 
         @Enumerated(EnumType.STRING)
         @Column(nullable = true)
-        val size: Size,
+        val size: Size? = null,
 
         @Column(nullable = true)
-        val fur:String, /*Should this be something else? */
+        val fur:String? = null, /*Should this be something else? */
 
         @Column(nullable = true)
-        val color: String /*Should this be something else? */
+        val color: String? = null /*Should this be something else? */
 
 ): Pet(name, birth, weight, owner, species, gender)
 

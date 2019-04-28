@@ -8,6 +8,6 @@ import javax.persistence.Entity
 class Species (
 
         @Column(nullable = false)
-        val name:String
+        val name:String? = null
 
 ): DatabaseEntity<Long>()

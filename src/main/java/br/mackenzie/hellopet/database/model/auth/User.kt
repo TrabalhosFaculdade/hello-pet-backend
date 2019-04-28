@@ -8,9 +8,9 @@ import javax.persistence.Entity
 class User (
 
         @Column(nullable = false)
-        val email:String,
+        val email:String? = null,
 
         @Column(nullable = false)
-        val password:String
+        val password:String? = null
 
 ) : DatabaseEntity<Long>()

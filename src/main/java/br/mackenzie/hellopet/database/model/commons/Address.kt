@@ -7,18 +7,18 @@ import javax.persistence.Entity
 class Address (
 
         @Column(nullable = false)
-        val street:String,
+        val street:String? = null,
 
         @Column(nullable = false)
-        var number:String,
+        var number:String? = null,
 
         @Column(nullable = false)
-        val zipCode:String,
+        val zipCode:String? = null,
 
         @Column(nullable = false)
-        val city:String,
+        val city:String? = null,
 
         @Column(nullable = true)
-        val complement:String
+        val complement:String? = null
 
 ) : DatabaseEntity<Long>()
