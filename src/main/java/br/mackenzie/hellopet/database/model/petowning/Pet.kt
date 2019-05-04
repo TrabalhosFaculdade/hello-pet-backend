@@ -1,7 +1,9 @@
 package br.mackenzie.hellopet.database.model.petowning
 
 import br.mackenzie.hellopet.database.model.commons.DatabaseEntity
+import br.mackenzie.hellopet.database.model.utils.ConvertibleEnum
 import java.time.LocalDateTime
+import java.util.*
 import javax.persistence.*
 
 @Entity
@@ -24,9 +26,17 @@ abstract class Pet : DatabaseEntity<Long>() {
     var species: Species? = null
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = true)
     var gender: Gender? = null
 }
 
-enum class Gender {
-    MALE, FEMALE, UNDEFINED
+enum class Gender(private val stringValue: String) : ConvertibleEnum<Gender, String> {
+
+    MALE("MALE"),
+    FEMALE("FEMALE"),
+    UNDEFINED("UNDEFINED");
+
+    override fun getValue(): String {
+        return stringValue
+    }
 }

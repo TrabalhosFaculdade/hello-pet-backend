@@ -43,4 +43,9 @@ class PetOwner : DatabaseEntity<Long> {
         this.phoneNumbers = listOf(phone)
         this.user = user
     }
+
+    fun addPet (pet: Pet) {
+        pets.add(pet)
+        pet.owner = this
+    }
 }
