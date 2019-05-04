@@ -19,7 +19,7 @@ class PetOwnerController @Autowired constructor(private val petOwnerService: Pet
     }
 
     @GetMapping
-    fun list(): ResponseEntity<List<RetrievingPetOwnerDTO>> {
+    fun getAll(): ResponseEntity<List<RetrievingPetOwnerDTO>> {
         return ResponseEntity.ok(petOwnerService.list().map { RetrievingPetOwnerDTO(it) })
     }
 
@@ -28,7 +28,7 @@ class PetOwnerController @Autowired constructor(private val petOwnerService: Pet
 
         val petOwner = petOwnerService.findOne(id)
         return if (petOwner.isPresent) {
-            ResponseEntity.ok(petOwner.get())
+            ResponseEntity.ok(RetrievingPetOwnerDTO(petOwner.get()))
         } else {
             ResponseEntity.notFound().build()
         }
