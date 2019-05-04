@@ -9,8 +9,7 @@ import java.util.*
 
 @Service
 class PetOwnerServiceImpl
-
-    @Autowired constructor(private val petOwnerRepository: PetOwnerRepository) : PetOwnerService {
+@Autowired constructor(private val petOwnerRepository: PetOwnerRepository) : PetOwnerService {
 
     override fun create(newOwner: PetOwner): PetOwner {
 
@@ -22,5 +21,5 @@ class PetOwnerServiceImpl
 
     override fun list(): List<PetOwner> = petOwnerRepository.findAll()
     override fun findOne(id: Long): Optional<PetOwner> = petOwnerRepository.findById(id)
-    
+
 }

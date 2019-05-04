@@ -17,7 +17,7 @@ class PetOwner : DatabaseEntity<Long> {
     var cpf: String? = null
 
     @Column(nullable = false)
-    var dataBirth: LocalDateTime? = null
+    var dateBirth: LocalDateTime? = null
 
     @OneToOne(cascade = [CascadeType.ALL], fetch = FetchType.EAGER, orphanRemoval = true)
     var address: Address? = null
@@ -35,10 +35,10 @@ class PetOwner : DatabaseEntity<Long> {
         //empty
     }
 
-    constructor(name:String, cpf:String, dataBirth: LocalDateTime, address: Address, phone:Phone, user: User) {
+    constructor(name:String, cpf:String, dateBirth: LocalDateTime, address: Address, phone:Phone, user: User) {
         this.name = name
         this.cpf = cpf
-        this.dataBirth = dataBirth
+        this.dateBirth = dateBirth
         this.address = address
         this.phoneNumbers = listOf(phone)
         this.user = user
