@@ -4,12 +4,21 @@ import javax.persistence.Column
 import javax.persistence.Entity
 
 @Entity
-class Phone (
+class Phone : DatabaseEntity<Long> {
 
-        @Column(nullable = false)
-        val phoneNumber:String? = null,
+    @Column(nullable = false)
+    var phoneNumber: String? = null
 
-        @Column(nullable = false)
-        val validated:Boolean? = null
+    @Column(nullable = false)
+    var validated: Boolean? = null
 
-) : DatabaseEntity<Long>()
+    constructor() {
+        //empty
+    }
+
+    constructor(phoneNumber: String, validated: Boolean) {
+        this.phoneNumber = phoneNumber
+        this.validated = validated
+    }
+
+}

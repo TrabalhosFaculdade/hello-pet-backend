@@ -8,27 +8,39 @@ import java.time.LocalDateTime
 import javax.persistence.*
 
 @Entity
-class PetOwner (
+class PetOwner : DatabaseEntity<Long> {
 
-        @Column(nullable = false)
-        val name: String? = null,
+    @Column(nullable = false)
+    var name: String? = null
 
-        @Column(unique = true, nullable = false)
-        private val cpf: String? = null,
+    @Column(unique = true, nullable = false)
+    var cpf: String? = null
 
-        @Column(nullable = false)
-        val dataBirth: LocalDateTime? = null,
+    @Column(nullable = false)
+    var dataBirth: LocalDateTime? = null
 
-        @OneToOne(cascade = [CascadeType.ALL], fetch = FetchType.EAGER, orphanRemoval = true)
-        val address: Address? = null,
+    @OneToOne(cascade = [CascadeType.ALL], fetch = FetchType.EAGER, orphanRemoval = true)
+    var address: Address? = null
 
-        @OneToMany(cascade = [CascadeType.ALL], fetch = FetchType.EAGER, orphanRemoval = true)
-        val phoneNumbers:MutableList<Phone> = mutableListOf(),
+    @OneToMany(cascade = [CascadeType.ALL], fetch = FetchType.EAGER, orphanRemoval = true)
+    var phoneNumbers: List<Phone> = mutableListOf()
 
-        @OneToOne(optional = false, cascade = [CascadeType.ALL], orphanRemoval = true)
-        val user: User? = null,
+    @OneToOne(optional = false, cascade = [CascadeType.ALL], orphanRemoval = true)
+    var user: User? = null
 
-        @OneToMany
-        val pets:MutableList<Pet> = mutableListOf()
+    @OneToMany
+    var pets: MutableList<Pet> = mutableListOf()
 
-) : DatabaseEntity<Long>()
+    constructor() {
+        //empty
+    }
+
+    constructor(name:String, cpf:String, dataBirth: LocalDateTime, address: Address, phone:Phone, user: User) {
+        this.name = name
+        this.cpf = cpf
+        this.dataBirth = dataBirth
+        this.address = address
+        this.phoneNumbers = listOf(phone)
+        this.user = user
+    }
+}

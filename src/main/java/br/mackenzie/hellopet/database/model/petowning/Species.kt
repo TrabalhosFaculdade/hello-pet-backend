@@ -5,9 +5,9 @@ import javax.persistence.Column
 import javax.persistence.Entity
 
 @Entity
-class Species (
+class Species : DatabaseEntity<Long>() {
 
-        @Column(nullable = false)
-        val name:String? = null
+    @Column(nullable = false)
+    var name: String? = null
 
-): DatabaseEntity<Long>()
+}

@@ -6,10 +6,18 @@ import javax.persistence.Id
 import javax.persistence.MappedSuperclass
 
 @MappedSuperclass
-abstract class DatabaseEntity <T:Serializable> {
+abstract class DatabaseEntity<T : Serializable> {
 
-        @Id @GeneratedValue
-        private var id : T? = null
+    @Id
+    @GeneratedValue
+    var id: T? = null
 
+    constructor() {
+        //empty
+    }
+
+    constructor(id: T) {
+        this.id = id
+    }
 }
 

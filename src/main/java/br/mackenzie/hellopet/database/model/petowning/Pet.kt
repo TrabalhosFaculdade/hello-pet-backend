@@ -6,27 +6,26 @@ import javax.persistence.*
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-abstract class Pet (
+abstract class Pet : DatabaseEntity<Long>() {
 
-        @Column(nullable = false)
-        val name:String? = null,
+    @Column(nullable = false)
+    var name: String? = null
 
-        @Column(nullable = true)
-        val birth:LocalDateTime? = null,
+    @Column(nullable = true)
+    var birth: LocalDateTime? = null
 
-        @Column(nullable = true)
-        val weight:Float? = null,
+    @Column(nullable = true)
+    var weight: Float? = null
 
-        @ManyToOne(optional = false)
-        val owner: PetOwner? = null,
+    @ManyToOne(optional = false)
+    var owner: PetOwner? = null
 
-        @ManyToOne
-        val species: Species? = null,
+    @ManyToOne
+    var species: Species? = null
 
-        @Enumerated(EnumType.STRING)
-        val gender: Gender? = null
-
-): DatabaseEntity<Long>()
+    @Enumerated(EnumType.STRING)
+    var gender: Gender? = null
+}
 
 enum class Gender {
     MALE, FEMALE, UNDEFINED

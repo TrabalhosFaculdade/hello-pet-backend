@@ -5,12 +5,20 @@ import javax.persistence.Column
 import javax.persistence.Entity
 
 @Entity
-class User (
+class User : DatabaseEntity<Long> {
 
-        @Column(nullable = false)
-        val email:String? = null,
+    @Column(nullable = false)
+    var email: String? = null
 
-        @Column(nullable = false)
-        val password:String? = null
+    @Column(nullable = false)
+    var password: String? = null
 
-) : DatabaseEntity<Long>()
+    constructor() {
+        //empty
+    }
+
+    constructor(email: String, password: String) {
+        this.email = email
+        this.password = password
+    }
+}
