@@ -14,14 +14,13 @@ import javax.validation.Valid
 @Api(value = "Pet Owner Endpoints")
 class PetOwnerController @Autowired constructor(private val petOwnerService: PetOwnerService) {
 
-        @ApiOperation(value = "Register a new pet owner with informed values", notes = "Date format: yyyy/MM/dd")
+    @ApiOperation(value = "Register a new pet owner with informed values", notes = "Date format: yyyy/MM/dd")
     @ApiResponses(value = [
         ApiResponse(code = 200, message = "Pet owner registered, no problem occurred"),
         ApiResponse(code = 500, message = "Errors related to constraints on fields values, like duplicated cpf or email")
     ])
     @PostMapping
-    fun create(@ApiParam(name = "pet owner", required = true) @RequestBody @Valid
-               owner: CreatePetOwnerDTO): ResponseEntity<Any> {
+    fun create(@RequestBody @Valid owner: CreatePetOwnerDTO): ResponseEntity<Any> {
         petOwnerService.create(owner.createPetOwner())
         return ResponseEntity.ok().build()
     }
@@ -48,8 +47,7 @@ class PetOwnerController @Autowired constructor(private val petOwnerService: Pet
         ApiResponse(code = 500, message = "Unexpected internal server error, contact developers")
     ])
     @GetMapping("/{id}")
-    fun getOne(@ApiParam(name = "pet owner id", required = true)
-               @PathVariable id: Long): ResponseEntity<Any> {
+    fun getOne(@PathVariable id: Long): ResponseEntity<Any> {
 
         val petOwner = petOwnerService.findOne(id)
         return if (petOwner.isPresent) {

@@ -20,10 +20,10 @@ open class SwaggerConfiguration {
         return Docket(DocumentationType.SWAGGER_2)
                 .useDefaultResponseMessages(false)
                 .apiInfo(infoBuilder())
-                    .select()
-                    .apis(RequestHandlerSelectors.basePackage("br.mackenzie.hellopet.web"))
-                    .paths(PathSelectors.any())
-                    .build()
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("br.mackenzie.hellopet.web"))
+                .paths(PathSelectors.any())
+                .build()
     }
 
     private fun infoBuilder () : ApiInfo {

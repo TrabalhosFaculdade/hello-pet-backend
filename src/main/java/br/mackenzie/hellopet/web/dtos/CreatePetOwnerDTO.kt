@@ -22,8 +22,6 @@ data class CreatePetOwnerDTO(
         val cpf: String,
 
         @NotNull
-//        @JsonFormat(pattern = "dd/MM/yyyy")
-//        @DateTimeFormat(pattern = "dd/MM/yyyy")
         val birthDate: LocalDate,
 
         @NotNull @Valid

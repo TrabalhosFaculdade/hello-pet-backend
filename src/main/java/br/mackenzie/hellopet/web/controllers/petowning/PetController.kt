@@ -48,8 +48,7 @@ class PetController @Autowired constructor(private val petOwnerService: PetOwner
         ApiResponse(code = 500, message = "Unexpected internal server error, contact developers")
     ])
     @GetMapping("/owner/{id}")
-    fun getPetsFromOwner(@ApiParam(required = true, name = "pet owner id")
-                         @PathVariable id: Long): ResponseEntity<Any> {
+    fun getPetsFromOwner(@PathVariable id: Long): ResponseEntity<Any> {
         return try {
             val ownerDogs = petOwnerService.listPets(id, Dog::class.java)
             ResponseEntity.ok(ownerDogs.map { DogDTO(it) })

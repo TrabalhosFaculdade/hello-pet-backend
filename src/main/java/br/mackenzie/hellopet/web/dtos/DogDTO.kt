@@ -5,7 +5,7 @@ import br.mackenzie.hellopet.database.model.petowning.Gender
 import br.mackenzie.hellopet.database.model.petowning.Size
 import br.mackenzie.hellopet.database.model.petowning.Species
 import io.swagger.annotations.ApiModel
-import java.time.LocalDateTime
+import java.time.LocalDate
 import javax.validation.constraints.NotEmpty
 import javax.validation.constraints.NotNull
 
@@ -20,7 +20,7 @@ data class DogDTO(
 
         val fur: String?,
         val color: String?,
-        val birth: LocalDateTime?,
+        val birth: LocalDate?,
         val weight: Float?,
         val gender: Gender?,
         val size: Size?

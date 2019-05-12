@@ -2,8 +2,7 @@ package br.mackenzie.hellopet.database.model.petowning
 
 import br.mackenzie.hellopet.database.model.commons.DatabaseEntity
 import br.mackenzie.hellopet.database.model.utils.ConvertibleEnum
-import java.time.LocalDateTime
-import java.util.*
+import java.time.LocalDate
 import javax.persistence.*
 
 @Entity
@@ -14,7 +13,7 @@ abstract class Pet : DatabaseEntity<Long>() {
     var name: String? = null
 
     @Column(nullable = true)
-    var birth: LocalDateTime? = null
+    var birth: LocalDate? = null
 
     @Column(nullable = true)
     var weight: Float? = null
