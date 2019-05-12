@@ -4,7 +4,7 @@ import br.mackenzie.hellopet.database.model.auth.User
 import br.mackenzie.hellopet.database.model.commons.Address
 import br.mackenzie.hellopet.database.model.commons.DatabaseEntity
 import br.mackenzie.hellopet.database.model.commons.Phone
-import java.time.LocalDateTime
+import java.time.LocalDate
 import javax.persistence.*
 
 @Entity
@@ -17,7 +17,7 @@ class PetOwner : DatabaseEntity<Long> {
     var cpf: String? = null
 
     @Column(nullable = false)
-    var dateBirth: LocalDateTime? = null
+    var dateBirth: LocalDate? = null
 
     @OneToOne(cascade = [CascadeType.ALL], fetch = FetchType.EAGER, orphanRemoval = true)
     var address: Address? = null
@@ -35,7 +35,7 @@ class PetOwner : DatabaseEntity<Long> {
         //empty
     }
 
-    constructor(name:String, cpf:String, dateBirth: LocalDateTime, address: Address, phone:Phone, user: User) {
+    constructor(name:String, cpf:String, dateBirth: LocalDate, address: Address, phone:Phone, user: User) {
         this.name = name
         this.cpf = cpf
         this.dateBirth = dateBirth

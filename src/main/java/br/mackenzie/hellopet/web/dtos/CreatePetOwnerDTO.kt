@@ -3,8 +3,10 @@ package br.mackenzie.hellopet.web.dtos
 import br.mackenzie.hellopet.database.model.auth.User
 import br.mackenzie.hellopet.database.model.commons.Phone
 import br.mackenzie.hellopet.database.model.petowning.PetOwner
+import com.fasterxml.jackson.annotation.JsonFormat
 import io.swagger.annotations.ApiModel
-import java.time.LocalDateTime
+import org.springframework.format.annotation.DateTimeFormat
+import java.time.LocalDate
 import javax.validation.Valid
 import javax.validation.constraints.Email
 import javax.validation.constraints.NotBlank
@@ -20,7 +22,9 @@ data class CreatePetOwnerDTO(
         val cpf: String,
 
         @NotNull
-        val birthDate: LocalDateTime,
+//        @JsonFormat(pattern = "dd/MM/yyyy")
+//        @DateTimeFormat(pattern = "dd/MM/yyyy")
+        val birthDate: LocalDate,
 
         @NotNull @Valid
         val address: AddressDTO,

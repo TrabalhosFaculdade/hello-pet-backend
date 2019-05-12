@@ -14,7 +14,7 @@ import javax.validation.Valid
 @Api(value = "Pet Owner Endpoints")
 class PetOwnerController @Autowired constructor(private val petOwnerService: PetOwnerService) {
 
-    @ApiOperation(value = "Register a new pet owner with informed values")
+        @ApiOperation(value = "Register a new pet owner with informed values", notes = "Date format: yyyy/MM/dd")
     @ApiResponses(value = [
         ApiResponse(code = 200, message = "Pet owner registered, no problem occurred"),
         ApiResponse(code = 500, message = "Errors related to constraints on fields values, like duplicated cpf or email")
@@ -28,7 +28,8 @@ class PetOwnerController @Autowired constructor(private val petOwnerService: Pet
 
     @ApiOperation(value = "List all pet owner registered",
             response = RetrievingPetOwnerDTO::class,
-            responseContainer = "List")
+            responseContainer = "List",
+            notes = "Date format: yyyy/MM/dd")
     @ApiResponses(value = [
         ApiResponse(code = 200, message = "Pet owners returned, no problem occurred"),
         ApiResponse(code = 500, message = "Unexpected internal server error, contact developers")
