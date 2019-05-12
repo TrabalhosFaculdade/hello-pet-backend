@@ -3,12 +3,14 @@ package br.mackenzie.hellopet.web.dtos
 import br.mackenzie.hellopet.database.model.auth.User
 import br.mackenzie.hellopet.database.model.commons.Phone
 import br.mackenzie.hellopet.database.model.petowning.PetOwner
+import io.swagger.annotations.ApiModel
 import java.time.LocalDateTime
 import javax.validation.Valid
 import javax.validation.constraints.Email
 import javax.validation.constraints.NotBlank
 import javax.validation.constraints.NotNull
 
+@ApiModel("CreationPetOwner")
 data class CreatePetOwnerDTO(
 
         @NotNull @NotBlank

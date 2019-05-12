@@ -1,9 +1,11 @@
 package br.mackenzie.hellopet.web.dtos
 
 import br.mackenzie.hellopet.database.model.commons.Address
+import io.swagger.annotations.ApiModel
 import javax.validation.constraints.NotBlank
 import javax.validation.constraints.NotNull
 
+@ApiModel("Address")
 data class AddressDTO(
 
         @NotNull @NotBlank

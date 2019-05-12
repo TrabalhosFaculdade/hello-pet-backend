@@ -1,8 +1,10 @@
 package br.mackenzie.hellopet.web.dtos
 
 import br.mackenzie.hellopet.database.model.petowning.PetOwner
+import io.swagger.annotations.ApiModel
 import java.time.LocalDateTime
 
+@ApiModel("PetOwner")
 data class RetrievingPetOwnerDTO (private val petOwner: PetOwner) {
 
     val id: Long = petOwner.id!!

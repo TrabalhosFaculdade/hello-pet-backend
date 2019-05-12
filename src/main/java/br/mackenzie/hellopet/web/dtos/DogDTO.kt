@@ -4,10 +4,12 @@ import br.mackenzie.hellopet.database.model.petowning.Dog
 import br.mackenzie.hellopet.database.model.petowning.Gender
 import br.mackenzie.hellopet.database.model.petowning.Size
 import br.mackenzie.hellopet.database.model.petowning.Species
+import io.swagger.annotations.ApiModel
 import java.time.LocalDateTime
 import javax.validation.constraints.NotEmpty
 import javax.validation.constraints.NotNull
 
+@ApiModel("Dog")
 data class DogDTO(
 
         @NotNull @NotEmpty
