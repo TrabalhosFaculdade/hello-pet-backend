@@ -5,6 +5,7 @@ import java.time.LocalDateTime
 
 data class RetrievingPetOwnerDTO (private val petOwner: PetOwner) {
 
+    val id: Long = petOwner.id!!
     val name: String = petOwner.name!!
     val cpf: String = petOwner.cpf!!
     val dateBirth: LocalDateTime = petOwner.dateBirth!!
