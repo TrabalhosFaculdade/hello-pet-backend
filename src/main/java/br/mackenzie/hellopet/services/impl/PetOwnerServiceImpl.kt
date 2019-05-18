@@ -1,6 +1,5 @@
 package br.mackenzie.hellopet.services.impl
 
-import br.mackenzie.hellopet.database.model.petowning.Dog
 import br.mackenzie.hellopet.database.model.petowning.Pet
 import br.mackenzie.hellopet.database.model.petowning.PetOwner
 import br.mackenzie.hellopet.database.repositories.PetOwnerRepository
@@ -9,8 +8,6 @@ import br.mackenzie.hellopet.services.api.PetOwnerService
 import br.mackenzie.hellopet.services.api.SpeciesService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
-import org.springframework.web.client.HttpClientErrorException
-import java.lang.IllegalArgumentException
 import java.util.*
 
 @Service

@@ -3,9 +3,7 @@ package br.mackenzie.hellopet.web.dtos
 import br.mackenzie.hellopet.database.model.auth.User
 import br.mackenzie.hellopet.database.model.commons.Phone
 import br.mackenzie.hellopet.database.model.petowning.PetOwner
-import com.fasterxml.jackson.annotation.JsonFormat
 import io.swagger.annotations.ApiModel
-import org.springframework.format.annotation.DateTimeFormat
 import java.time.LocalDate
 import javax.validation.Valid
 import javax.validation.constraints.Email

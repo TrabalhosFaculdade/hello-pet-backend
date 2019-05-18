@@ -7,7 +7,10 @@ import br.mackenzie.hellopet.database.model.utils.ConvertibleEnum
 import br.mackenzie.hellopet.services.api.PetOwnerService
 import br.mackenzie.hellopet.web.dtos.CreateDogAssociatedToOwnerDTO
 import br.mackenzie.hellopet.web.dtos.DogDTO
-import io.swagger.annotations.*
+import io.swagger.annotations.Api
+import io.swagger.annotations.ApiOperation
+import io.swagger.annotations.ApiResponse
+import io.swagger.annotations.ApiResponses
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity

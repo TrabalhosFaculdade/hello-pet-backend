@@ -3,7 +3,10 @@ package br.mackenzie.hellopet.web.controllers.petowning
 import br.mackenzie.hellopet.services.api.PetOwnerService
 import br.mackenzie.hellopet.web.dtos.CreatePetOwnerDTO
 import br.mackenzie.hellopet.web.dtos.RetrievingPetOwnerDTO
-import io.swagger.annotations.*
+import io.swagger.annotations.Api
+import io.swagger.annotations.ApiOperation
+import io.swagger.annotations.ApiResponse
+import io.swagger.annotations.ApiResponses
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -14,7 +17,7 @@ import javax.validation.Valid
 @Api(value = "Pet Owner Endpoints")
 class PetOwnerController @Autowired constructor(private val petOwnerService: PetOwnerService) {
 
-    @ApiOperation(value = "Register a new pet owner with informed values", notes = "Date format: yyyy/MM/dd")
+    @ApiOperation(value = "Register a new pet owner with informed values", notes = "Date format: yyyy-MM-dd")
     @ApiResponses(value = [
         ApiResponse(code = 200, message = "Pet owner registered, no problem occurred"),
         ApiResponse(code = 500, message = "Errors related to constraints on fields values, like duplicated cpf or email")
@@ -28,7 +31,7 @@ class PetOwnerController @Autowired constructor(private val petOwnerService: Pet
     @ApiOperation(value = "List all pet owner registered",
             response = RetrievingPetOwnerDTO::class,
             responseContainer = "List",
-            notes = "Date format: yyyy/MM/dd")
+            notes = "Date format: yyyy-MM-dd")
     @ApiResponses(value = [
         ApiResponse(code = 200, message = "Pet owners returned, no problem occurred"),
         ApiResponse(code = 500, message = "Unexpected internal server error, contact developers")

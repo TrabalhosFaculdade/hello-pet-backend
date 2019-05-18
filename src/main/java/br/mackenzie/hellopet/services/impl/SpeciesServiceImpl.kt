@@ -5,7 +5,6 @@ import br.mackenzie.hellopet.database.repositories.SpeciesRepository
 import br.mackenzie.hellopet.services.api.SpeciesService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
-import java.lang.IllegalArgumentException
 import java.util.*
 
 @Service
